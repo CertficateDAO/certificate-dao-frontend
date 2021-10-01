@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CertificateDAO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CFE: a decentralized accrediting agency for educational resources and competencies">
+    <link href="assets/css/loaders/loader-typing.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme-cryptocurrency.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+</head>
+
+<body>
+<!-- 不知道是干什么的-->
+<div class="loader">
+    <div class="loading-animation"></div>
+</div>
+<div id="index">
+<div class="navbar-container bg-primary-3">
+    <nav class="navbar navbar-expand-lg justify-content-between navbar-dark border-bottom-0 bg-primary-3" data-sticky="top">
+        <div class="container">
+            <div class="col flex-fill px-0 d-flex justify-content-between">
+                <!--logo start-->
+                <a class="navbar-brand mr-0 fade-page" href="index.html">
+                    <img src="assets/img/logo-white.svg" alt="Leap">
+                </a>
+                <!--logo end-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="icon navbar-toggler-open" src="assets/img/icons/interface/menu.svg" alt="menu interface icon" data-inject-svg />
+                    <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
+                </button>
+            </div>
+            <!--右侧导航栏 start-->
+            <div class="collapse navbar-collapse col px-0 px-lg-2 flex-fill">
+                <div class="py-2 py-lg-0">
+                    <!--导航栏下拉菜单 start-->
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("explore.title") }}</a>
+                            <!--下拉列表-->
+                            <div class="dropdown-menu row">
+                                <div class="col-auto" data-dropdown-content>
+                                    <div class="dropdown-grid-menu">
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.course") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.book") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.ebook") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.history_news") }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--南坦
+                       <li class="nav-item dropdown">
+                           <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("nantan.title") }}</a>
+
+
+                           <div class="dropdown-menu row">
+                               <div class="col-auto" data-dropdown-content>
+                                   <div class="dropdown-grid-menu">
+                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.about") }}</a>
+                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.action") }}<span class="badge badge-primary ml-2">HOT</span></a>
+                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.spirit") }}</a>
+                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.notebook") }}</a>
+                                   </div>
+                               </div>
+                           </div>
+                           -->
+                        </li>
+<!--              资格认证          -->
+                        <!--下拉列表
+                        <li class="nav-item dropdown">
+                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("certificate.title") }}</a>
+
+
+                            <div class="dropdown-menu row">
+                                <div class="col-auto" data-dropdown-content>
+                                    <div class="dropdown-grid-menu">
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.about") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.how_to") }}<span class="badge badge-primary ml-2">NEW</span></a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.description") }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </li>
+<!--                 领域       -->
+                        <!--下拉列表
+                        <li class="nav-item dropdown">
+                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("scope.title") }}</a>
+
+                            <div class="dropdown-menu row">
+                                <div class="col-auto" data-dropdown-content>
+                                    <div class="dropdown-grid-menu">
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.defi") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.nft") }}</a>
+                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.metaverse") }}</a>
+                                    </div>
+                                    >
+                                </div>
+                            </div>
+                            -->
+                        </li>
+<!--    讨论
+                        <li class="nav-item dropdown">
+                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("discuss.title") }}</a>
+                        </li>
+-->
+                        <li class="nav-item dropdown">
+                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("help.title") }}</a>
+                            <div class="dropdown-menu row">
+                                <div class="col-auto px-0" data-dropdown-content>
+                                    <div class="bg-white rounded border shadow-lg o-hidden">
+                                        <div class="p-3">
+                                            <h6 class="mb-0">{{ $t("help.product") }}</h6>
+                                        </div>
+                                        <div class="list-group list-group-flush">
+                                            <a href="subscribe/index.html" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-3">
+                                                <img class="icon icon-md" src="assets/img/icons/theme/files/selected-file.svg" alt="selected-file icon" data-inject-svg />
+                                                <div class="text-body ml-3">
+                                                    <span>{{ $t("help.doc.title") }}</span>
+                                                    <div class="text-small text-muted">{{ $t("help.doc.message") }}</div>
+                                                </div>
+                                            </a>
+                                            <a href="https://themes.zendesk.com/hc/en-us/articles/360000006291-How-do-I-get-help-with-the-theme-I-purchased-" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-3">
+                                                <img class="icon icon-md" src="assets/img/icons/theme/communication/chat-4.svg" alt="chat-4 icon" data-inject-svg />
+                                                <div class="text-body ml-3">
+                                                    <span>{{ $t("help.manual.title") }} </span>
+                                                    <div class="text-small text-muted">{{ $t("help.manual.message") }}</div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("language") }}</a>
+                            <div class="dropdown-menu row">
+                                <div class="col-auto" data-dropdown-content>
+                                    <div class="dropdown-grid-menu">
+                                        <div id="changeEnBtn" class="dropdown-item fade-page">English</div>
+                                        <div id="changeZhBtn" class="dropdown-item fade-page">中文</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--导航栏下拉菜单 end-->
+                </div>
+            </div>
+            <!--导航边栏按钮 - 可用来购买或者注册-->
+            <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
+                <button id="changeBtn" class="btn btn-primary ml-lg-3">{{ $t("purchase.title") }}</button>
+            </div>
+            <!--右侧导航栏 end--->
+        </div>
+    </nav>
+</div>
+<!-- Brand 像那种登陆页 -->
+<section class="bg-primary-3 o-hidden">
+    <div class="container layer-1">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-xl-5 col-md-6 text-light">
+                <div class="d-flex mb-4">
+                    <!--这里可以以最新咨询为主、或者重大新闻-->
+                    <span class="badge badge-primary mr-2">{{ $t("subject.news") }}</span>
+                    <a href="subscribe/index.html" class="text-small hover-arrow">{{ $t("subject.news_description") }}</a>
+                </div>
+                <h1 class="display-4">{{ $t("subject.title") }}</h1> <!--主标题-->
+                <!--副标题-->
+                <p class="lead">{{ $t("subject.description") }}</p>
+            </div>
+            <div class="col-xl-5 col-md-6">
+                <div class="text-center text-light">
+                    <div class="mb-4">
+                        <span class="h1">{{ $t("supply.title") }}</span>
+                    </div>
+                    <!--动态过程栏，动画舒服-->
+                    <div>
+                        <span class="h3" data-countup data-start="1" data-end="3575000" data-duration="3" data-grouping="true" data-prefix="$USD "></span>
+                        <div class="progress my-3">
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="text-small">{{ $t("supply.message") }}</span>
+                    </div>
+                </div>
+                <!--过期时间 一般不用-->
+            </div>
+        </div>
+    </div>
+    <div class="decoration-wrapper d-none d-md-block">
+        <div class="decoration top right scale-4">
+            <img class="bg-primary-2" src="assets/img/decorations/deco-blob-2.svg" alt="deco-blob-2 decoration" data-inject-svg />
+        </div>
+    </div>
+</section>
+<!--赞助公司 start -->
+<!--赞助公司 end -->
+<!--宣传视频播放 start -->
+<section class="bg-primary-3 pt-0 text-light">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <!--左侧-->
+                <div class="video-poster rounded layer-2" data-aos="fade-right">
+                    <!--播放视频-->
+                    <a data-fancybox href="https://vimeo.com/40842620" class="btn btn-lg btn-primary btn-round">
+                        <!--播放按钮-->
+                        <img class="icon" src="assets/img/icons/theme/media/play.svg" alt="play icon" data-inject-svg />
+                    </a>
+                    <!--视频封面-->
+                    <img src="assets/img/article-8.jpg" alt="Image">
+                </div>
+                <div class="decoration top left scale-2" data-aos="fade-up">
+                    <img class="bg-primary-2" src="assets/img/decorations/deco-lines-3.svg" alt="deco-lines-3 decoration" data-inject-svg />
+                </div>
+            </div>
+            <!--右侧 说明文档-->
+            <div class="col-md-6 col-lg-5" data-aos="fade">
+                <!--标题-->
+                <h2 class="h1">{{ $t("video.title") }}</h2>
+                <!--副标题-->
+                <p class="lead">
+                    {{ $t("video.subTitle") }}
+                </p>
+                <p class="lead">{{ $t("video.desc") }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--宣传视频播放 end -->
+<!--对比性卡片说明 start-->
+<section class="bg-primary-3 pt-0 has-divider">
+    <div class="container">
+        <!--标题-->
+        <div class="row mb-4 text-light">
+            <div class="col">
+                <h2 class="h1">{{ $t("difference.title") }}</h2>
+            </div>
+        </div>
+        <!--卡片-->
+        <div class="row">
+            <!--单张卡片 start-->
+            <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="card card-body">
+                    <div class="flex-grow-1">
+                        <div class="h3">{{ $t("difference.first.title") }}</div>
+                        <p>
+                            {{ $t("difference.first.desc") }}
+                        </p>
+                    </div>
+                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="card card-body">
+                    <div class="flex-grow-1">
+                        <div class="h3">{{ $t("difference.second.title") }}</div>
+                        <p>
+                            {{ $t("difference.first.desc") }}
+                        </p>
+                    </div>
+                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+                <div class="card card-body">
+                    <div class="flex-grow-1">
+                        <div class="h3">{{ $t("difference.third.title") }}</div>
+                        <p>
+                            {{ $t("difference.third.desc") }}
+                        </p>
+                    </div>
+                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                </div>
+            </div>
+            <!--单张卡片 end-->
+        </div>
+    </div>
+    <div class="divider">
+        <img src="assets/img/dividers/divider-3.svg" alt="graphical divider" data-inject-svg />
+    </div>
+</section>
+<!--对比性卡片说明 end-->
+<!--项目团队说明 start-->
+<section>
+    <div class="container">
+        <!--标题-->
+        <div class="row mb-4">
+            <div class="col">
+                <h2 class="h1">{{ $t("team.title") }}</h2>
+            </div>
+        </div>
+        <!--任务卡片说明-->
+        <div class="row">
+            <!--单人物卡片 start-->
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/img/avatars/male-1.jpg" alt="Benjamin Cameron" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.CEO.name") }}</h5>
+                    <span>{{ $t("team.CEO.title") }}</span>
+                </div>
+            </div>
+            <!--单人物卡片 end-->
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/img/avatars/female-4.jpg" alt="Andrea Souzakis" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.CTO.name") }}</h5>
+                    <span>{{ $t("team.CTO.title") }}</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="300">
+                <img src="assets/img/avatars/male-2.jpg" alt="Anil Bhaktar" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.advisor_first.name") }}</h5>
+                    <span>{{ $t("team.advisor_first.title") }}</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="400">
+                <img src="assets/img/avatars/female-3.jpg" alt="Candice Tierman" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.advisor_second.name") }}</h5>
+                    <span>{{ $t("team.advisor_second.title") }}</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="500">
+                <img src="assets/img/avatars/male-5.jpg" alt="Andrew Finnigan" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.advisor_third.name") }}</h5>
+                    <span>{{ $t("team.advisor_third.title") }}</span>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 d-flex align-items-center mb-5" data-aos="fade-up" data-aos-delay="600">
+                <img src="assets/img/avatars/male-4.jpg" alt="Cedric Vance" class="avatar avatar-xlg mr-3">
+                <div>
+                    <h5 class="mb-0">{{ $t("team.advisor_fourth.name") }}</h5>
+                    <span>{{ $t("team.advisor_fourth.title") }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--项目团队说明 end-->
+<!--项目白皮书 start-->
+<section class="p-0">
+    <div class="container">
+        <div class="row justify-content-around o-hidden o-lg-visible">
+            <!--左侧文字提示-->
+            <div class="col-xl-5 col-md-6 mb-4 mb-md-0" data-aos="fade">
+                <h3 class="h1">{{ $t("whitePaper.title") }}</h3>
+                <p class="lead">{{ $t("whitePaper.subTitle") }}</p>
+                <!--动态效果 - 下载链接-->
+                <a href="subscribe/index.html" class="lead hover-arrow">{{ $t("whitePaper.download") }}</a>
+            </div>
+            <!--右侧白皮书图案 也可以下载-->
+            <div class="col-xl-4 col-lg-5 col-md-6 mb-lg-n7 layer-2" data-aos="fade-left">
+                <!--下载链接-->
+                <a href="doc/WhitePaper.pdf" class="card card-icon-3 card-body justify-content-between hover-shadow-3d rotate-right">
+                    <div class="icon-round mb-3 mb-md-4 bg-primary">
+                        <img class="icon bg-primary" src="assets/img/icons/theme/files/selected-file.svg" alt="icon" data-inject-svg />
+                    </div>
+                    <!--白皮书图案上的文字-->
+                    <div>
+                        <h3>CertificateDAO</h3>
+                        <p class="lead">
+                            {{ $t("whitePaper.desc") }}
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="divider">
+        <img class="bg-primary-3" src="assets/img/dividers/divider-3.svg" alt="divider graphic" data-inject-svg />
+    </div>
+</section>
+<!--项目白皮书 end-->
+<!--开发路线 start-->
+<section class="bg-primary-3 text-light">
+    <div class="container">
+        <!--标题 start-->
+        <div class="row justify-content-center text-center mb-4">
+            <div class="col-xl-8 col-lg-9">
+                <h2 class="h1">{{ $t("roadmap.title") }}</h2>
+                <p class="lead">{{ $t("roadmap.desc") }}</p>
+            </div>
+        </div>
+        <!--标题 end-->
+        <!--节点 start-->
+        <div class="row o-hidden o-lg-visible">
+            <div class="col d-flex flex-column align-items-center">
+                <ol class="process-vertical">
+                    <!--单个节点 todo 后台-->
+                    <li data-aos="fade-left">
+                        <div class="process-circle bg-primary"></div>
+                        <div>
+                            <span class="text-small text-muted">{{ $t("roadmap.first.time") }}</span>
+                            <h5 class="mb-0">{{ $t("roadmap.first.desc") }}</h5>
+                        </div>
+                    </li>
+                    <li data-aos="fade-right">
+                        <div class="process-circle bg-primary"></div>
+                        <div>
+                            <span class="text-small text-muted">{{ $t("roadmap.second.time") }}</span>
+                            <h5 class="mb-0">{{ $t("roadmap.second.desc") }}</h5>
+                        </div>
+                    </li>
+                    <li data-aos="fade-left">
+                        <div class="process-circle bg-primary"></div>
+                        <div>
+                            <span class="text-small text-muted">{{ $t("roadmap.third.time") }}</span>
+                            <h5 class="mb-0">{{ $t("roadmap.third.desc") }}</h5>
+                        </div>
+                    </li>
+                    <li data-aos="fade-right">
+                        <div class="process-circle bg-primary"></div>
+                        <div>
+                            <span class="text-small text-muted">{{ $t("roadmap.forth.time") }}</span>
+                            <h5 class="mb-0">{{ $t("roadmap.forth.desc") }}</h5>
+                        </div>
+                    </li>
+                    <li data-aos="fade-left">
+                        <div class="process-circle bg-primary"></div>
+                        <div>
+                            <span class="text-small text-muted">{{ $t("roadmap.five.time") }}</span>
+                            <h5 class="mb-0">{{ $t("roadmap.second.desc") }}</h5>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!--节点 end-->
+    </div>
+</section>
+<!--开发路线 end-->
+
+<!--页面脚注 start-->
+<footer class="pb-5 bg-primary-3 text-light">
+    <div class="container">
+        <!--版权信息 start-->
+        <div class="row justify-content-center text-center">
+            <div class="col-xl-10">
+                <small class="text-muted">{{ $t("foot.copyright") }}</small>
+            </div>
+        </div>
+        <!--版权信息 end-->
+    </div>
+</footer>
+<!--页面脚注 end-->
+<!--返回置顶 start-->
+<a href="#" class="btn back-to-top btn-primary btn-round" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
+    <img class="icon" src="assets/img/icons/theme/navigation/arrow-up.svg" alt="arrow-up icon" data-inject-svg />
+</a>
+<!--返回置顶 end-->
+</div>
+<!-- Required vendor scripts (Do not remove) -->
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+
+<!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+
+<!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
+<script type="text/javascript" src="assets/js/aos.js"></script>
+<!-- Clipboard (copies content from browser into OS clipboard) -->
+<script type="text/javascript" src="assets/js/clipboard.min.js"></script>
+<!-- Fancybox (handles image and video lightbox and galleries) -->
+<script type="text/javascript" src="assets/js/jquery.fancybox.min.js"></script>
+<!-- Flatpickr (calendar/date/time picker UI) -->
+<script type="text/javascript" src="assets/js/flatpickr.min.js"></script>
+<!-- Flickity (handles touch enabled carousels and sliders 没有安装成功) -->
+<script type="text/javascript" src="assets/js/flickity.pkgd.min.js"></script>
+<!-- Ion rangeSlider (flexible and pretty range slider elements) -->
+<script type="text/javascript" src="assets/js/ion.rangeSlider.min.js"></script>
+<!-- Isotope (masonry layouts and filtering) -->
+<script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+<!-- jarallax (parallax effect and video backgrounds) -->
+<script type="text/javascript" src="assets/js/jarallax.min.js"></script>
+<!--无法安装-->
+<script type="text/javascript" src="assets/js/jarallax-video.min.js"></script>
+<!--无法安装-->
+<script type="text/javascript" src="assets/js/jarallax-element.min.js"></script>
+<!-- jQuery Countdown (displays countdown text to a specified date) 暂时可以不用 -->
+<script type="text/javascript" src="assets/js/jquery.countdown.min.js"></script>
+<!-- jQuery smartWizard facilitates steppable wizard content -->
+<script type="text/javascript" src="assets/js/jquery.smartWizard.min.js"></script>
+<!-- Plyr (unified player for Video, Audio, Vimeo and Youtube) -->
+<script type="text/javascript" src="assets/js/plyr.polyfilled.min.js"></script>
+<!-- Prism (displays formatted code boxes)  不知道安装哪一个-->
+<script type="text/javascript" src="assets/js/prism.js"></script>
+<!-- ScrollMonitor (manages events for elements scrolling in and out of view) -->
+<script type="text/javascript" src="assets/js/scrollMonitor.js"></script>
+<!-- Smooth scroll (animation to links in-page)-->
+<script type="text/javascript" src="assets/js/smooth-scroll.polyfills.min.js"></script>
+<!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
+<script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+<!-- TwitterFetcher (displays a feed of tweets from a specified account)可不用-->
+<script type="text/javascript" src="assets/js/twitterFetcher_min.js"></script>
+<!-- Typed text (animated typing effect)-->
+<script type="text/javascript" src="assets/js/typed.min.js"></script>
+<!-- Required theme scripts (Do not remove) -->
+<script type="text/javascript" src="assets/js/theme.js"></script>
+<!-- Removes page load animation when window is finished loading -->
+<script type="text/javascript">
+    window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+</script>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/vue-i18n@next"></script>
+<script type="text/javascript" src="assets/js/i18n.js">
+</script>
+<script>
+    $('#changeEnBtn').click(() => changeLocale("en"))
+    $('#changeZhBtn').click(() => changeLocale("zh"))
+</script>
+</body>
+
+</html>
