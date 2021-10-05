@@ -178,7 +178,10 @@
 <script type="text/javascript" src="../assets/js/theme.js"></script>
 <!-- Removes page load animation when window is finished loading -->
 <script type="text/javascript">
-    window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    window.addEventListener("load", function () {
+        document.querySelector('body').classList.add('loaded');
+        htmlWithLocale();
+    });
 </script>
 
 
