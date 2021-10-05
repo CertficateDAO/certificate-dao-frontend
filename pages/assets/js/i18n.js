@@ -1,6 +1,9 @@
 const messages = {
     en: {
         language:"language",
+        join:{
+            title:"Join Now"
+        },
         purchase:{
             title:"Purchase Now"
         },
@@ -154,8 +157,21 @@ const messages = {
         foot:{
             copyright:"Copyright 2005 CertificateDAO® is a registered trademark of your company. " +
                 "The CertificateDAO® logo is a registered trademark of CertificateDAO Corporation in the United States and other countries."
+        },
+        account:{
+            set_up:{
+                title:"Create Account",
+                sub_title:"No Address required",
+                email:"",
+                password:"Must be at least 8 characters",
+                confirm_password:"",
+                sign_up:"Sign Up",
+                agree:"I agree to the",
+                term_condition:"Terms , Conditions",
+                already_account:"Already have an account yet?",
+                sign_in:"Sign In"
+            }
         }
-
     },
     zh: {
         language:"语言",
@@ -165,6 +181,9 @@ const messages = {
             title:"群体认证的智慧",
             description:"让所有认证、非认证的用户都可以使用并且可以进行修改的知识产品，并在此产品基础上提供基于共识机制的、可验证的衍生能力资格认证服务。"
        },
+        join:{
+            title:"加入 !"
+        },
         purchase:{
             title:"现在购买"
         },
@@ -311,6 +330,20 @@ const messages = {
         foot:{
             copyright:"版权所有CertificateDAO®是贵公司的注册商标。\n " +
                 "CertificateDAO®标识是CertificateDAO公司在美国和其他国家注册的商标。"
+        },
+        account:{
+            set_up:{
+                title:"创建账户",
+                sub_title:"基础服务不需要钱包地址",
+                email:"",
+                password:"最少8个字符",
+                confirm_password:"",
+                sign_up:"注册",
+                agree:"我同意",
+                term_condition:"相关条款 , 条件",
+                already_account:"已有账户 ?",
+                sign_in:"登录"
+            }
         }
 
 
@@ -339,6 +372,20 @@ app.mount('#index')
 
 function changeLocale(locale){
     console.log("origin locale"+ i18n.global.locale)
+    i18n.global.locale = locale
+    console.log("now locale"+ i18n.global.locale)
+}
+function getLocale(){
+    return i18n.global.locale
+}
+
+function htmlWithLocale(){
+    console.log("origin locale"+ i18n.global.locale)
+    let locale
+    const url = window.location.search
+    if (url.indexOf("?")!==-1){
+        locale = url.substr(url.indexOf("=")+1)
+    }
     i18n.global.locale = locale
     console.log("now locale"+ i18n.global.locale)
 }

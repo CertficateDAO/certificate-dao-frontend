@@ -10,6 +10,8 @@
     <link href="assets/css/theme-cryptocurrency.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="preload" as="font" href="assets/fonts/Inter-UI-upright.var.woff2" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" as="font" href="assets/fonts/Inter-UI.var.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./favicon-white.ico"/>
+    <link rel="bookmark" href="./favicon-white.ico"/>
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             <div class="col flex-fill px-0 d-flex justify-content-between">
                 <!--logo start-->
                 <a class="navbar-brand mr-0 fade-page" href="index.html">
-                    <img src="assets/img/logo-white.svg" alt="Leap">
+                    <img src="assets/img/logo-white.svg" alt="CertificateDAO">
                 </a>
                 <!--logo end-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,15 +40,15 @@
                     <!--导航栏下拉菜单 start-->
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("explore.title") }}</a>
+                            <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("explore.title") }}</a>
                             <!--下拉列表-->
                             <div class="dropdown-menu row">
                                 <div class="col-auto" data-dropdown-content>
                                     <div class="dropdown-grid-menu">
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.course") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.book") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.ebook") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("explore.history_news") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("explore.course") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("explore.book") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("explore.ebook") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("explore.history_news") }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -54,16 +56,16 @@
 
                         <!--南坦
                        <li class="nav-item dropdown">
-                           <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("nantan.title") }}</a>
+                           <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("nantan.title") }}</a>
 
 
                            <div class="dropdown-menu row">
                                <div class="col-auto" data-dropdown-content>
                                    <div class="dropdown-grid-menu">
-                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.about") }}</a>
-                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.action") }}<span class="badge badge-primary ml-2">HOT</span></a>
-                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.spirit") }}</a>
-                                       <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("nantan.notebook") }}</a>
+                                       <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("nantan.about") }}</a>
+                                       <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("nantan.action") }}<span class="badge badge-primary ml-2">HOT</span></a>
+                                       <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("nantan.spirit") }}</a>
+                                       <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("nantan.notebook") }}</a>
                                    </div>
                                </div>
                            </div>
@@ -72,15 +74,15 @@
 <!--              资格认证          -->
                         <!--下拉列表
                         <li class="nav-item dropdown">
-                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("certificate.title") }}</a>
+                            <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("certificate.title") }}</a>
 
 
                             <div class="dropdown-menu row">
                                 <div class="col-auto" data-dropdown-content>
                                     <div class="dropdown-grid-menu">
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.about") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.how_to") }}<span class="badge badge-primary ml-2">NEW</span></a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("certificate.description") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("certificate.about") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("certificate.how_to") }}<span class="badge badge-primary ml-2">NEW</span></a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("certificate.description") }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -89,14 +91,14 @@
 <!--                 领域       -->
                         <!--下拉列表
                         <li class="nav-item dropdown">
-                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("scope.title") }}</a>
+                            <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("scope.title") }}</a>
 
                             <div class="dropdown-menu row">
                                 <div class="col-auto" data-dropdown-content>
                                     <div class="dropdown-grid-menu">
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.defi") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.nft") }}</a>
-                                        <a href="subscribe/index.html" class="dropdown-item fade-page">{{ $t("scope.metaverse") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("scope.defi") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("scope.nft") }}</a>
+                                        <a href="#" onclick="toSubscribe()" class="dropdown-item fade-page">{{ $t("scope.metaverse") }}</a>
                                     </div>
                                     >
                                 </div>
@@ -105,11 +107,11 @@
                         </li>
 <!--    讨论
                         <li class="nav-item dropdown">
-                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("discuss.title") }}</a>
+                            <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("discuss.title") }}</a>
                         </li>
 -->
                         <li class="nav-item dropdown">
-                            <a href="subscribe/index.html" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("help.title") }}</a>
+                            <a href="#" onclick="toSubscribe()" class="nav-link dropdown-toggle" data-toggle="dropdown-grid" aria-expanded="false" aria-haspopup="true">{{ $t("help.title") }}</a>
                             <div class="dropdown-menu row">
                                 <div class="col-auto px-0" data-dropdown-content>
                                     <div class="bg-white rounded border shadow-lg o-hidden">
@@ -117,7 +119,7 @@
                                             <h6 class="mb-0">{{ $t("help.product") }}</h6>
                                         </div>
                                         <div class="list-group list-group-flush">
-                                            <a href="subscribe/index.html" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-3">
+                                            <a href="#" onclick="toSubscribe()" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-3">
                                                 <img class="icon icon-md" src="assets/img/icons/theme/files/selected-file.svg" alt="selected-file icon" data-inject-svg />
                                                 <div class="text-body ml-3">
                                                     <span>{{ $t("help.doc.title") }}</span>
@@ -153,7 +155,7 @@
             </div>
             <!--导航边栏按钮 - 可用来购买或者注册-->
             <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
-                <button id="changeBtn" class="btn btn-primary ml-lg-3">{{ $t("purchase.title") }}</button>
+                <a  href="#" onclick="toSignUp()" class="btn btn-primary ml-lg-3">{{ $t("join.title") }}</a>
             </div>
             <!--右侧导航栏 end--->
         </div>
@@ -167,7 +169,7 @@
                 <div class="d-flex mb-4">
                     <!--这里可以以最新咨询为主、或者重大新闻-->
                     <span class="badge badge-primary mr-2">{{ $t("subject.news") }}</span>
-                    <a href="subscribe/index.html" class="text-small hover-arrow">{{ $t("subject.news_description") }}</a>
+                    <a href="#" onclick="toSubscribe()" class="text-small hover-arrow">{{ $t("subject.news_description") }}</a>
                 </div>
                 <h1 class="display-4">{{ $t("subject.title") }}</h1> <!--主标题-->
                 <!--副标题-->
@@ -252,7 +254,7 @@
                             {{ $t("difference.first.desc") }}
                         </p>
                     </div>
-                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                    <a href="#" onclick="toSubscribe()" class="hover-arrow">{{ $t("difference.more") }}</a>
                 </div>
             </div>
             <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
@@ -263,7 +265,7 @@
                             {{ $t("difference.first.desc") }}
                         </p>
                     </div>
-                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                    <a href="#" onclick="toSubscribe()" class="hover-arrow">{{ $t("difference.more") }}</a>
                 </div>
             </div>
             <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
@@ -274,7 +276,7 @@
                             {{ $t("difference.third.desc") }}
                         </p>
                     </div>
-                    <a href="subscribe/index.html" class="hover-arrow">{{ $t("difference.more") }}</a>
+                    <a href="#" onclick="toSubscribe()" class="hover-arrow">{{ $t("difference.more") }}</a>
                 </div>
             </div>
             <!--单张卡片 end-->
@@ -353,7 +355,7 @@
                 <h3 class="h1">{{ $t("whitePaper.title") }}</h3>
                 <p class="lead">{{ $t("whitePaper.subTitle") }}</p>
                 <!--动态效果 - 下载链接-->
-                <a href="subscribe/index.html" class="lead hover-arrow">{{ $t("whitePaper.download") }}</a>
+                <a href="#" onclick="toSubscribe()" class="lead hover-arrow">{{ $t("whitePaper.download") }}</a>
             </div>
             <!--右侧白皮书图案 也可以下载-->
             <div class="col-xl-4 col-lg-5 col-md-6 mb-lg-n7 layer-2" data-aos="fade-left">
@@ -426,7 +428,7 @@
                         <div class="process-circle bg-primary"></div>
                         <div>
                             <span class="text-small text-muted">{{ $t("roadmap.five.time") }}</span>
-                            <h5 class="mb-0">{{ $t("roadmap.second.desc") }}</h5>
+                            <h5 class="mb-0">{{ $t("roadmap.five.desc") }}</h5>
                         </div>
                     </li>
                 </ol>
@@ -510,11 +512,22 @@
 
 <script src="https://unpkg.com/vue@next"></script>
 <script src="https://unpkg.com/vue-i18n@next"></script>
+<script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+
 <script type="text/javascript" src="assets/js/i18n.js">
 </script>
 <script>
     $('#changeEnBtn').click(() => changeLocale("en"))
     $('#changeZhBtn').click(() => changeLocale("zh"))
+
+    function toSubscribe(){
+        const locale = getLocale()
+        window.location.href="subscribe/index.html?language="+locale
+    }
+    function toSignUp(){
+        const locale = getLocale()
+        window.location.href="account/sign-up.html?language="+locale
+    }
 </script>
 </body>
 
