@@ -95,10 +95,10 @@
                         </button>
                     </div>
                     <div>
-                        <div id = "successReply" class="d-none alert alert-success" role="alert" data-success-message>
+                        <div id = "successReply" class="alert alert-success" role="alert"style="display: none" data-success-message>
                             {{ $t("subscribe.thanks") }}
                         </div>
-                        <div id = "failReply" class="d-none alert alert-danger" role="alert" data-error-message>
+                        <div id = "failReply" class=" alert alert-danger" role="alert" style="display: none" data-error-message>
                             {{ $t("subscribe.error") }}
                         </div>
                     </div>
@@ -194,6 +194,7 @@
 <script type="text/javascript" src="../assets/js/i18n.js"></script>
 <script type="text/javascript">
     const submitBtn = $('#submitBtn')
+
     submitBtn.click(function () {
         submitBtn.prop('disabled', true);
         const input = document.getElementById("emailInput");
@@ -212,11 +213,11 @@
                     console.log(res)
                     var body = res.data;
                     if ("01" === body["result"]){
-                        $("#successReply").removeClass('d-none');
+                        $("#successReply").show().delay(3000).fadeOut()
                         console.log("发送成功")
                     }
                     else {
-                        $("#failReply").removeClass('d-none');
+                        $("#failReply").show().delay(3000).fadeOut()
                         console.error(body["result"]);
                         submitBtn.prop('disabled', false);
                     }
@@ -227,7 +228,7 @@
                 }
             })
         }else {
-            $("#failReply").removeClass('d-none');
+            $("#failReply").show().delay(3000).fadeOut()
             console.error("mail address not null");
             submitBtn.prop('disabled', false);
         }
