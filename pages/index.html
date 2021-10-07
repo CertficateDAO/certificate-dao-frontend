@@ -149,15 +149,30 @@
                                 </div>
                             </div>
                         </li>
+
+                        <li class="nav-item" style="display: none" id="profileNav">
+                            <a href="#" class="nav-link"  aria-expanded="false" aria-haspopup="true">{{ $t("profile") }}</a>
+                        </li>
                     </ul>
                     <!--导航栏下拉菜单 end-->
                 </div>
             </div>
             <!--导航边栏按钮 - 可用来购买或者注册-->
-            <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
-                <a  href="#" onclick="toSignUp()" class="btn btn-primary ml-lg-3">{{ $t("join.title") }}</a>
-            </div>
+<!--            <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">-->
+<!--                <a  href="#" onclick="toSignUp()" class="btn btn-primary ml-lg-3">{{ $t("join.title") }}</a>-->
+<!--            </div>-->
             <!--右侧导航栏 end--->
+
+            <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
+                <div id="displayAddressDiv" style="display: none">
+                    <span class="badge badge-pill badge-primary m-1" id="address"></span>
+                    <img src="./assets/img/avatars/female-4.jpg" alt="Avatar" class="avatar m-1">
+                </div>
+                <!--导航边栏按钮 - 可用来购买或者注册-->
+                <div >
+                    <button class="btn btn-primary ml-lg-3" id="connectWalletBtn">{{ $t("connect") }}</button>
+                </div>
+            </div>
         </div>
     </nav>
 </div>
@@ -200,6 +215,28 @@
     </div>
 </section>
 <!--赞助公司 start -->
+    <section class="bg-primary-3 pt-0">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="d-flex flex-wrap justify-content-center list-unstyled">
+                        <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                            <img class="bg-white icon icon-md icon-logo opacity-30" src="assets/img/logos/brand/algo.svg" alt="algo stable coin" data-inject-svg />
+                        </li>
+                        <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+                            <img class="bg-white icon icon-md icon-logo opacity-30" src="assets/img/logos/brand/ethereum-eth-logo.svg" alt="eth coin" data-inject-svg />
+                        </li>
+                        <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="300">
+                            <img class="bg-white icon icon-md icon-logo opacity-30" src="assets/img/logos/brand/terra-luna-luna-logo.svg" alt="luna coin" data-inject-svg />
+                        </li>
+                        <li class="mx-4 mb-5" data-aos="fade-up" data-aos-delay="400">
+                            <img class="bg-white icon icon-md icon-logo opacity-30" src="assets/img/logos/brand/tether-usdt-logo.svg" alt="tether coin" data-inject-svg />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 <!--赞助公司 end -->
 <!--宣传视频播放 start -->
 <section class="bg-primary-3 pt-0 text-light">
@@ -508,6 +545,27 @@
 <!-- Removes page load animation when window is finished loading -->
 <script type="text/javascript">
     window.addEventListener("load", function () {    document.querySelector('body').classList.add('loaded');  });
+    if (window.ethereum) {
+        handleEthereum();
+    } else {
+        window.addEventListener('ethereum#initialized', handleEthereum, {
+            once: true,
+        });
+
+        // If the event is not dispatched by the end of the timeout,
+        // the user probably doesn't have MetaMask installed.
+        setTimeout(handleEthereum, 3000); // 3 seconds
+    }
+
+    function handleEthereum() {
+        const { ethereum } = window;
+        if (ethereum && ethereum.isMetaMask) {
+            console.log('Ethereum successfully detected!');
+            // Access the decentralized web!
+        } else {
+            console.log('Please install MetaMask!');
+        }
+    }
 </script>
 
 <script src="https://unpkg.com/vue@next"></script>
@@ -519,14 +577,49 @@
     $('#changeEnBtn').click(() => changeLocale("en"))
     $('#changeZhBtn').click(() => changeLocale("zh"))
 
+    let address;
+
     function toSubscribe(){
         const locale = getLocale()
         window.location.href="subscribe/index.html?language="+locale
     }
     function toSignUp(){
+        console.log(this.address)
         const locale = getLocale()
         window.location.href="account/sign-up.html?language="+locale
     }
+    function toProfile(){
+        console.log(this.address)
+        const locale = getLocale()
+        window.location.href="account/profile.html?language="+locale
+    }
+
+    // 连接小狐狸
+    $('#connectWalletBtn').click(() => onClickConnect())
+    async function onClickConnect(){
+        try {
+            const newAccounts = await ethereum.request({
+                method: 'eth_requestAccounts',
+            })
+            this.handleNewAccounts(newAccounts)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    function handleNewAccounts(newAccounts) {
+        accounts = newAccounts
+        account = accounts[0]
+        $('#displayAddressDiv').show()
+        $('#address').text(account.substr(0,8))
+        $('#connectWalletBtn').fadeOut()
+        $('#profileNav').show()
+        console.log("account:" + account)
+        address = account;
+    }
+    window.ethereum.on('accountsChanged', function (accounts) {
+        // Time to reload your interface with accounts[0]!
+        $('#address').text(account = accounts[0].substr(0,8))
+    });
 </script>
 </body>
 

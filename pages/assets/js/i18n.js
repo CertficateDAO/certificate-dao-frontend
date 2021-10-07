@@ -1,9 +1,11 @@
 const messages = {
     en: {
-        language:"language",
+        language:"Language",
         join:{
             title:"Join Now"
         },
+        connect:"connect wallet",
+        profile:"Profile",
         purchase:{
             title:"Purchase Now"
         },
@@ -184,6 +186,8 @@ const messages = {
         join:{
             title:"加入 !"
         },
+        connect:"连接钱包",
+        profile:"我的展品",
         purchase:{
             title:"现在购买"
         },
