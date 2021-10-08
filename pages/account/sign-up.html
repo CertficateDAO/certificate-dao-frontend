@@ -40,19 +40,23 @@
               <h1 class="mb-1" style="color: white">{{ $t("account.set_up.title") }}</h1>
               <span>{{ $t("account.set_up.sub_title") }}</span>
             </div>
-            <form>
+<!--            <form>-->
               <div class="form-group">
-                <input type="email" name="signup-email" placeholder="Email Address" class="form-control">
+                <input id="inputName" type="text" name="name" placeholder="Your name" class="form-control">
               </div>
+
               <div class="form-group">
-                <input type="password" name="signup-password" placeholder="Password" class="form-control">
-                <small class="text-muted">{{ $t("account.set_up.password") }}</small>
+                <input id="inputMail" type="email" name="signup-email" placeholder="Email Address" class="form-control">
               </div>
+<!--              <div class="form-group">-->
+<!--                <input type="password" name="signup-password" placeholder="Password" class="form-control">-->
+<!--                <small class="text-muted">{{ $t("account.set_up.password") }}</small>-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <input type="password" name="signup-password-confirm" placeholder="Confirm password" class="form-control">-->
+<!--              </div>-->
               <div class="form-group">
-                <input type="password" name="signup-password-confirm" placeholder="Confirm password" class="form-control">
-              </div>
-              <div class="form-group">
-                <button class="btn-block btn btn-primary" type="submit">{{ $t("account.set_up.sign_up") }}</button>
+                <button id="registerBtn" class="btn-block btn btn-primary" type="submit" >{{ $t("account.set_up.sign_up") }}</button>
               </div>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="signup-agree">
@@ -66,7 +70,7 @@
               <div class="text-center text-small text-muted">
                 <span>{{ $t("account.set_up.already_account") }}  <a href="#">{{ $t("account.set_up.sign_in") }}</a></span>
               </div>
-            </form>
+<!--            </form>-->
           </div>
         </div>
       </div>
@@ -118,11 +122,74 @@
     <!-- Required theme scripts (Do not remove) -->
     <script type="text/javascript" src="../assets/js/theme.js"></script>
     <!-- Removes page load animation when window is finished loading -->
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <script type="text/javascript">
       window.addEventListener("load", function () {
         document.querySelector('body').classList.add('loaded');
         htmlWithLocale();
+        $('#registerBtn').click(() => registerToTable())
       });
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const signer = provider.getSigner()
+      let account,
+      contractAddress="0x9F074B8028e07d6173402686836157447381ca27",
+      contractAbi= [
+        "function register(string memory name_, string memory email_) ",
+        "function setFees(uint256 fees_)",
+        "event Register(string name_, string email_)"
+      ]
+      async function initAccount(){
+        accounts = await ethereum.request({
+          method: 'eth_requestAccounts',
+        })
+        account = accounts[0]
+      }
+
+      function registerToChain(name,mail){
+        initAccount();
+        const contract = new ethers.Contract(contractAddress, contractAbi, provider);
+        const cfeSinger = contract.connect(signer);
+        cfeSinger.register(name,mail);
+        contract.on("Register",(name,mail,event) => {
+          console.log(`${name} - ${mail} has registered! By ${event}`);
+        })
+      }
+
+
+
+      function registerToTable(){
+
+        const name = document.getElementById("inputName");
+        const mail = document.getElementById("inputMail");
+
+        const address = "00000"
+        const body = {
+          name:name.value,
+          mail:mail.value,
+          address:address
+        };
+        console.log(body)
+        $.ajax({
+          url:"http://certificatedao.com:40018/account/register",
+          headers: {  'Access-Control-Allow-Origin': '*' },
+          type: 'POST',
+          data: JSON.stringify(body),
+          contentType: "application/json", // 默认以formdata形式发送给后台
+          dataType: "json",
+          success:function(result){
+            //todo
+            console.log("result" + result)
+          },
+          error:function(error){
+            //todo
+            console.log("error" + error)
+          }
+        });
+
+      }
+
+
     </script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="https://unpkg.com/vue-i18n@next"></script>

@@ -95,7 +95,7 @@
                         </button>
                     </div>
                     <div>
-                        <div id = "successReply" class="alert alert-success" role="alert"style="display: none" data-success-message>
+                        <div id = "successReply" class="alert alert-success" role="alert" style="display: none" data-success-message>
                             {{ $t("subscribe.thanks") }}
                         </div>
                         <div id = "failReply" class=" alert alert-danger" role="alert" style="display: none" data-error-message>
@@ -203,7 +203,7 @@
         if (param){
             const body = {"mailAddress":param}
             $.ajax({
-                url: 'http://www.certificatedao.com:40018/subscribe',
+                url: 'http://certificatedao.com:40018:40018/subscribe',
                 headers: {  'Access-Control-Allow-Origin': '*' },
                 type: 'POST',
                 data: JSON.stringify(body),
@@ -235,6 +235,9 @@
 
     })
 
+
+</script>
+<script>
 
 </script>
 </body>
